@@ -1,0 +1,91 @@
+<style>
+    .calc-group{
+        display: inline-flex;
+    }
+    .calc-group div{
+        margin-right: 3rem;
+    }
+</style>
+<div xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <form th:method="POST" th:action="@{'/calculator'(lang=${lang})}">
+        <div  class="calc-group" style="display: inline-flex">
+        <div class="form-group">
+            <label th:text="${lang=='EN'?'Amount':'Износ:'}" for="value_from"></label>
+            <input type="number"  class="form-control" name="value_from" id="value_from" min="1" max="100000" th:value="${value_from}!=null?${value_from}:'1'">
+        </div>
+        <div class="form-group" >
+            <label for="currency_from" th:text="${lang=='EN'}?'From currency:':'Од валута:'"></label>
+            <select id="currency_from" name="currency_from" class="form-control" onchange="clickOnCurrencyFrom()" th:value="${currency_from}">
+                <option th:each="c : ${currencies}" th:value="${c.getName()}" ><th:block th:text="${c.getName()}"></th:block></option>
+
+            </select>
+
+        </div>
+        <div class="form-group">
+            <label for="currency_to" th:text="${lang=='EN'?'In currency':'Во валута:'}"></label>
+            <select id="currency_to" name="currency_to" class="form-control" onchange="clickOnCurrencyTo()" th:value="${currency_to}">
+                <option th:each="c : ${currencies}" th:value="${c.getName()}" ><th:block th:text="${c.getName()}"></th:block></option>
+            </select>
+
+
+
+
+        </div>
+
+
+
+        <div class="form-group">
+            <button class="btn btn-primary " style="margin-top:2.5rem" onclick="change(event)">        <i class="fa fa-exchange" ></i>
+            </button>
+        </div>
+        </div>
+
+        <div class="form-group">
+            <label th:text="${lang=='EN'?'Amount':'Износ:'}" for="value_from"></label>
+            <input type="number"  class="form-control" name="value_to" id="value_to" readonly disabled th:value="${value_to}!=null?${value_to}:' '">
+
+        </div>
+
+<div class="form-group">
+    <input type="submit" class="btn btn-success" th:value="${lang}=='EN'?'Convert':'Пресметај'"/>
+</div>
+
+
+
+
+
+
+        <script>
+            if(document.getElementById("currency_from").value==='MKD' && document.getElementById("currency_to").value==='MKD'){
+                document.getElementById("currency_to").value="EUR"
+            }
+            const change=(event)=>{
+                let tmp=document.getElementById("currency_from").value;
+                document.getElementById("currency_from").value=document.getElementById("currency_to").value;
+                document.getElementById("currency_to").value=tmp;
+                event.preventDefault();
+
+
+            }
+
+
+
+       function clickOnCurrencyFrom(){
+           if(document.getElementById("currency_from").value!=='MKD'){
+               document.getElementById("currency_to").value='MKD';
+
+           }
+       }
+       function clickOnCurrencyTo(){
+           if(document.getElementById("currency_to").value!=='MKD'){
+               document.getElementById("currency_from").value='MKD';
+
+           }
+       }
+
+        </script>
+
+
+    </form>
+</div>

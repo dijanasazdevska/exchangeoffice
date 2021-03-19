@@ -1,0 +1,28 @@
+<div xmlns="" xmlns:th="http://www.w3.org/1999/xhtml">
+<form th:method="POST" th:action="@{'/admin/change/'+${c.getCurrency_id()}}">
+<div class="form-group">
+    <h1>Променувам за <block th:text="${c.getCurrency().getName()}"></block></h1>
+</div>
+    <div class="form-group">
+    <label for="buying">Куповен</label>
+
+    <input class="form-control" name="buying" id="buying" type="number" step="0.01" th:value="${c.getBuying()}">
+
+
+
+</div>
+    <div class="form-group">
+        <label for="selling">Продавен</label>
+
+        <input class="form-control" name="selling" id="selling" type="number" step="0.01" th:value="${c.getSelling()}">
+
+    </div>
+    <div class="form-group">
+        <label for="amount">Важи за</label>
+        <input class="form-control" name="amount" id="amount" type="number" th:value="${c.getAmount()}">
+    </div>
+    <input type="submit" class="btn btn-success" value="Промени">
+    <a href="/" class="btn btn-primary">Откажи</a>
+</form>
+
+</div>

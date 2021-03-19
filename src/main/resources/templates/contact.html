@@ -1,0 +1,47 @@
+<div xmlns:th="http://www.w3.org/1999/xhtml">
+    <style>
+        .working_time{
+display: inline-flex;
+        }
+        .working_time div{
+            margin-right: 5rem;
+        }
+    </style>
+<h4 th:if="${lang=='EN'}">Mobile phone: <a href="callto:+38975261910">+38975261910</a></h4>
+    <h4 th:if="${lang!='EN'}">Мобилен телефон: <a href="callto:+38975261910">+38975261910</a></h4>
+
+    <h4 th:if="${lang!='EN'}">Адреса: бул. Партизански Одреди 48А, Карпош 1</h4>
+    <h4 th:if="${lang=='EN'}">Address: bul. Partizanski Odredi 48А, Karposh 1</h4>
+
+    <h4 th:if="${lang!='EN'}">Е-адреса: <a href="mailto:simona_ds@hotmail.com">simona_ds@hotmail.com</a></h4>
+    <h4 th:if="${lang=='EN'}">E-mail: <a href="mailto:simona_ds@hotmail.com">simona_ds@hotmail.com</a></h4>
+
+    <div  class="working_time">
+        <div>
+            <h4 th:if="${lang!='EN'}">Зимско работно време:</h4>
+            <h4 th:if="${lang=='EN'}">Winter working time:</h4>
+
+            <h4 th:if="${lang!='EN'}" >Понеделник - Петок 08:30 - 17:00</h4>
+            <h4 th:if="${lang=='EN'}" >Monday - Friday 8:30AM - 5:00PM</h4>
+
+            <h4 th:if="${lang!='EN'}">Сабота 08:30 - 15:00 </h4>
+            <h4 th:if="${lang=='EN'}">Saturday 8:30AM - 3:00PM</h4>
+
+        </div>
+
+<div>
+    <h4 th:if="${lang!='EN'}">Летно работно време:</h4>
+    <h4 th:if="${lang=='EN'}">Summer working time:</h4>
+
+    <h4 th:if="${lang!='EN'}" >Понеделник - Петок 08:30 - 18:00</h4>
+    <h4 th:if="${lang=='EN'}" >Monday - Friday 8:30AM - 6:00PM</h4>
+
+    <h4 th:if="${lang!='EN'}">Сабота 08:30 - 15:00 </h4>
+    <h4 th:if="${lang=='EN'}">Saturday 8:30AM - 3:00PM</h4>
+</div>
+</div>
+</div>
+
+
+
+

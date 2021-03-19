@@ -1,0 +1,40 @@
+<body xmlns:th="http://www.w3.org/1999/xhtml">
+
+<nav class="navbar fixed-top navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <a class="navbar-brand " th:href="@{'/'(lang=${lang})}" th:text="${lang=='EN'}?'Exchange Office Simona-DS':'Менувачница Симона-ДС'"></a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="nav-item" ><a  class="nav-link" th:href="@{'/'(lang=${lang})}" th:text="${lang}=='EN'?'Exchange rates':'Курсна листа'"></a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{'/calculator'(lang=${lang})}" th:text="${lang}=='EN'?'Calculator':'Калкулатор'"></a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{'/map'(lang=${lang})}" th:text="${lang}=='EN'?'Map':'Локација'"></a></li>
+            <li class="nav-item"><a class="nav-link"th:href="@{'/contact'(lang=${lang})}" th:text="${lang}=='EN'?'Contact':'Контакт'"></a></li>
+
+        </ul>
+        <div style="float: right; font-size: large; color: #777777;">
+            <a th:href="@{'/'(lang='MK')}" onclick="changeLanguage(event)">MK</a>
+            |
+
+            <a th:href="@{'/'(lang='EN')}" onclick="changeLanguage(event)">EN</a>
+        </div>
+
+
+
+
+    </div>
+</nav>
+<script th:inline="javascript" type="text/javascript">
+    const changeLanguage=(event)=>{
+
+       console.log(event);
+
+    }
+
+</script>
+
+
+
+</body>
+</html>

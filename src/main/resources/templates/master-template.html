@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="menuvacnica, менувачница,курсна листа, kursna lista,menuvacnica karpos, менувачница карпош,exchange office, menuvacnica simona-ds, simona-ds, exchange,менувачница симона-дс, euro, евро">
+    <meta name="description" content="Менувачница Симона-ДС">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+    </style>
+</head>
+<body>
+<section th:include="/fragments/header"></section>
+<section th:include="${bodyContent}"></section>
+<section th:include="/fragments/footer"></section>
+
+<script th:inline="javascript" type="text/javascript">
+    if([[${bodyContent}]]==="list"){
+        document.getElementsByClassName("nav-item")[0].classList.add("active");
+
+
+    }
+    else if([[${bodyContent}]]==="calculator"){
+        document.getElementsByClassName("nav-item")[1].classList.add("active");
+
+    }
+    else if([[${bodyContent}]]==="map"){
+        document.getElementsByClassName("nav-item")[2].classList.add("active");
+
+
+    }
+    else{
+        document.getElementsByClassName("nav-item")[3].classList.add("active");
+
+    }
+    document.title=document.getElementsByClassName("active")[0].innerText;
+
+</script>
+</body>
+</html>
