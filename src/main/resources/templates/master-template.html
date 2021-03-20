@@ -34,11 +34,17 @@
 
 
     }
-    else{
+    else if([[${bodyContent}]]==="contact"){
         document.getElementsByClassName("nav-item")[3].classList.add("active");
 
     }
-    document.title=document.getElementsByClassName("active")[0].innerText;
+    if([[${bodyContent}]]=="change"){
+        document.title=[[${language}]]==='EN'?'Change':'Промени';
+    }
+    else{
+        document.title=document.getElementsByClassName("active")[0].innerText;
+
+    }
 
 </script>
 </body>

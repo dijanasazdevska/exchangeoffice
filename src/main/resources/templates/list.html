@@ -19,7 +19,7 @@
         <td th:text="${c.getAmount()}"></td>
         <td th:text="${c.getBuying()}"></td>
         <td th:text="${c.getSelling()}"></td>
-        <td sec:authorize="hasRole('ROLE_ADMIN')"> <a  th:href="@{'/admin/change/'+${c.getCurrency_id()}}" class="btn btn-info">Промени</a></td>
+        <td sec:authorize="hasRole('ROLE_ADMIN')"> <a  th:href="@{'/admin/change/{id}'(lang=${lang},id=${c.getCurrency_id()})}" class="btn btn-info" th:text="${language}=='EN'?'Change':'Промени'"></a></td>
     </tr>
 </table>
 </div>
