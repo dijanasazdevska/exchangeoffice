@@ -15,9 +15,9 @@
     </style>
 </head>
 <body>
-<section th:include="/fragments/header"></section>
+<section th:include="fragments/header"></section>
 <section th:include="${bodyContent}"></section>
-<section th:include="/fragments/footer"></section>
+<section th:include="fragments/footer"></section>
 
 <script th:inline="javascript" type="text/javascript">
     if([[${bodyContent}]]==="list"){
