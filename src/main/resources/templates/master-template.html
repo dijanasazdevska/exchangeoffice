@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="menuvacnica, менувачница,курсна листа, kursna lista,menuvacnica karpos, менувачница карпош,exchange office, menuvacnica simona-ds, simona-ds, exchange,менувачница симона-дс, euro, евро">
     <meta name="description" content="Менувачница Симона-ДС">
+    <meta name="google-site-verification" content="tpNB4p2on-LsEVse5eMJrrBTZ350CQwmRnvvHUU-ruQ" />
     <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -16,10 +17,12 @@
 </head>
 <body>
 <section th:include="fragments/header"></section>
-<section th:include="${bodyContent}"></section>
+<h1></h1>
+<section  th:include="${bodyContent}"></section>
 <section th:include="fragments/footer"></section>
 
 <script th:inline="javascript" type="text/javascript">
+
     if([[${bodyContent}]]==="list"){
         document.getElementsByClassName("nav-item")[0].classList.add("active");
 
@@ -38,14 +41,17 @@
         document.getElementsByClassName("nav-item")[3].classList.add("active");
 
     }
+    let string =document.getElementsByClassName("navbar-brand")[0].innerHTML.split(" ")[1]+" | ";
     if([[${bodyContent}]]=="change"){
-        document.title=[[${language}]]==='EN'?'Change':'Промени';
+        document.title=string+[[${language}]]==='EN'?'Change':'Промени';
     }
     else{
-        document.title=document.getElementsByClassName("active")[0].innerText;
+        document.title=string+document.getElementsByClassName("active")[0].innerText;
 
     }
 
+
+</script>
 </script>
 </body>
 </html>

@@ -29,6 +29,7 @@ public class CalculatorController {
         if(lang==null){
             lang="MK";
         }
+
         model.addAttribute("currencies",currencyService.findAll().stream().sorted(Comparator.comparing(Currency::getId)).collect(Collectors.toList()));
         model.addAttribute("bodyContent","calculator");
         model.addAttribute("bodyTitle","Калкулатор");
